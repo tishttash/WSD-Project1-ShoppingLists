@@ -1,4 +1,4 @@
-import { postgres } from "../deps.js";
+import { postgres } from "./deps.js";
 
 // TODO: CHANGE DATABASE NAME!!!
 let sql;
