@@ -1,7 +1,5 @@
 <% layout("./layouts/layout.eta") %>
 
-<h1><a href="/">Main Page</a></h1>
-
 <form method="POST">
   List Name: <input type="text" name="name" />
   <input type="submit" value="Add List" />
@@ -19,3 +17,5 @@
   </li>
 <% }); %>
 </ul>
+
+<h3><a href="/">Main Page</a></h3>
