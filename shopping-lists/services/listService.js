@@ -1,4 +1,4 @@
-import { sql } from "./database.js";
+import { sql } from "../database/database.js";
 
 const countLists = async () => {
   return await sql`SELECT COUNT(*) FROM shopping_lists`;

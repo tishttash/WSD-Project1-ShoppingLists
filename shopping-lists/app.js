@@ -1,7 +1,7 @@
 import { serve } from "./deps.js";
 import { configure } from "./deps.js";
-import * as listController from "./listController.js";
-import { renderFile } from "https://deno.land/x/eta@v2.0.0/mod.ts";
+import * as listController from "./controllers/listController.js";
+// import { renderFile } from "https://deno.land/x/eta@v2.0.0/mod.ts";
 // import * as requestUtils from "./utils/requestUtils.js";
 
 configure({
