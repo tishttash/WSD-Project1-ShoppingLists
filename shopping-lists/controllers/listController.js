@@ -16,8 +16,8 @@ const viewMainPage = async (request) => {
     listCount: varlistCount,
     itemCount: varitemCount,
   };
-  // console.log(data.listCount);
-  // console.log(data.itemCount);
+  console.log(data.listCount);
+  console.log(data.itemCount);
   return new Response(await renderFile("main.eta", data), responseDetails);
 };
 
