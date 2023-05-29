@@ -59,8 +59,8 @@ const viewIndivList = async (request) => {
   const data = {
     currentListName: currentList[0].name,
     currentListId: currentList[0].id,
-    itemsActive: await listService.findAllActiveItems(),
-    itemsCollected: await listService.findAllCollectedItems(),
+    itemsActive: await listService.findAllActiveItems(currentList[0].id),
+    itemsCollected: await listService.findAllCollectedItems(currentList[0].id),
   };
   return new Response(await renderFile("indivlist.eta", data), responseDetails);
 };
@@ -73,7 +73,7 @@ const addItemtoList = async (request) => {
   const formData = await request.formData();
   const name = formData.get("name");
 
-  await listService.createItem(name);
+  await listService.createItem(listId, name);
 
   return requestUtils.redirectTo(`/lists/${listId}`);
 }

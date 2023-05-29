@@ -1,7 +1,7 @@
 import { sql } from "../database/database.js";
 
 const countLists = async () => {
-  return await sql`SELECT COUNT(*) FROM shopping_lists`;
+  return await sql `SELECT COUNT(*) FROM shopping_lists`;
 };
 
 const countItems = async () => {
@@ -24,20 +24,24 @@ const findListbyId = async (listId) => {
     return await sql`SELECT * FROM shopping_lists WHERE id = ${listId}`;
 };
 
-const findAllActiveItems = async () => {
-  return await sql`SELECT * FROM shopping_list_items WHERE collected=false ORDER BY name ASC `;
+const findAllActiveItems = async (listId) => {
+  return await sql`SELECT * FROM shopping_list_items 
+    WHERE shopping_list_id = ${listId} AND collected = false 
+    ORDER BY name ASC `;
 };
 
-const createItem = async (name) => {
-  await sql`INSERT INTO shopping_list_items (name) VALUES (${name})`;
+const createItem = async (listId, name) => {
+  await sql`INSERT INTO shopping_list_items (shopping_list_id, name) VALUES (${listId}, ${name})`;
 };
 
 const collectItemById = async (itemId) => {
   await sql`UPDATE shopping_list_items SET collected = true WHERE id = ${itemId}`;
 };
 
-const findAllCollectedItems = async () => {
-  return await sql`SELECT * FROM shopping_list_items WHERE collected=true ORDER BY name ASC`;
+const findAllCollectedItems = async (listId) => {
+  return await sql`SELECT * FROM shopping_list_items 
+    WHERE shopping_list_id = ${listId} AND collected = true 
+    ORDER BY name ASC`;
 }
 
 export { 
