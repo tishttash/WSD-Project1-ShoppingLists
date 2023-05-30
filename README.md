@@ -13,7 +13,8 @@ This application allows users to:
 - Deactivate shopping lists such that they cannot be viewed 
 - View statistics on the number of shopping lists and shopping list items they have in the home page
 
-## Application has been deployed on render
+## Online deployment (preferred)
+The application has been deployed on Render. 
 URL to access the application: https://tasha-wsd-project1.onrender.com 
 
 ## Running the application locally:
